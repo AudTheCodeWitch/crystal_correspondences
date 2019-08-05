@@ -19,9 +19,9 @@ class CrystalCorrespondences::CLI
       when list
         list
       when purpose
-        purpose
+        purposes
       when color
-        color
+        colors
       else
         puts "Try one of these options:"
         menu
@@ -50,7 +50,7 @@ class CrystalCorrespondences::CLI
     list
   end
 
-  def purpose
+  def purposes
     #get list of purposes
     puts 'To see crystals for a specific purpose, type the number.'
     puts "To go back, type 'menu'."
@@ -69,9 +69,25 @@ class CrystalCorrespondences::CLI
     end
     purpose
   end
-  # user chooses crystal
-  # show crystal correspondences
-  # show menu
-  # user types exit
-  # show goodbye message
+
+  def colors
+    #get list of colors
+    puts 'To see crystals of a certain color, type the number.'
+    puts "To go back, type 'menu'."
+    puts "To exit, type 'exit'."
+    input = gets.strip
+    case input
+    when menu
+      menu
+    when #an integer
+      # puts list of crystals
+      # maybe call list?
+    when exit
+      "Goodbye!"
+    else
+      purpose
+    end
+    purpose
+  end
+
 end
