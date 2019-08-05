@@ -29,8 +29,6 @@ class CrystalCorrespondences::CLI
     end
   end
 
-  # user types list
-  # show list of crystals
   def list
     #get list of crystals
     puts 'To learn more about a crystal, type the number.'
@@ -40,8 +38,8 @@ class CrystalCorrespondences::CLI
     case input
     when menu
       menu
-    when #an integer
-      # puts info about that crystal
+    when input.to_i > 0
+      puts "crystal info"
     when exit
       "Goodbye!"
     else
@@ -59,8 +57,8 @@ class CrystalCorrespondences::CLI
     case input
     when menu
       menu
-    when #an integer
-      # puts list of crystals
+    when input.to_i > 0
+      puts "list of crystals"
       # maybe call list?
     when exit
       "Goodbye!"
@@ -79,8 +77,8 @@ class CrystalCorrespondences::CLI
     case input
     when menu
       menu
-    when #an integer
-      # puts list of crystals
+    when input.to_i > 0
+      puts "list of crystals"
       # maybe call list?
     when exit
       "Goodbye!"
@@ -89,5 +87,7 @@ class CrystalCorrespondences::CLI
     end
     purpose
   end
+
+  # maybe add navigation method for instructions to get rid of repetition
 
 end
