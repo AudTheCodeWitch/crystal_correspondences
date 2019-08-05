@@ -4,6 +4,7 @@ class CrystalCorrespondences::CLI
   def call
     puts "Welcome, friend!"
     menu
+    goodbye
   end
 
   # show menu
@@ -14,7 +15,7 @@ class CrystalCorrespondences::CLI
     puts "To exit, type 'exit'."
     input = nil
     while input != 'exit'
-      input = gets.strip
+      input = gets.strip.downcase
       case input
       when list
         list
@@ -33,15 +34,12 @@ class CrystalCorrespondences::CLI
     #get list of crystals
     puts 'To learn more about a crystal, type the number.'
     puts "To go back, type 'menu'."
-    puts "To exit, type 'exit'."
-    input = gets.strip
+    input = gets.strip.downcase
     case input
     when menu
       menu
     when input.to_i > 0
       puts "crystal info"
-    when exit
-      "Goodbye!"
     else
       list
     end
@@ -53,15 +51,13 @@ class CrystalCorrespondences::CLI
     puts 'To see crystals for a specific purpose, type the number.'
     puts "To go back, type 'menu'."
     puts "To exit, type 'exit'."
-    input = gets.strip
+    input = gets.strip.downcase
     case input
     when menu
       menu
     when input.to_i > 0
       puts "list of crystals"
       # maybe call list?
-    when exit
-      "Goodbye!"
     else
       purpose
     end
@@ -73,19 +69,21 @@ class CrystalCorrespondences::CLI
     puts 'To see crystals of a certain color, type the number.'
     puts "To go back, type 'menu'."
     puts "To exit, type 'exit'."
-    input = gets.strip
+    input = gets.strip.downcase
     case input
     when menu
       menu
     when input.to_i > 0
       puts "list of crystals"
       # maybe call list?
-    when exit
-      "Goodbye!"
     else
       purpose
     end
     purpose
+  end
+
+  def goodbye
+    puts "Love and light to you, my dear. Goodbye!"
   end
 
   # maybe add navigation method for instructions to get rid of repetition
