@@ -1,6 +1,2 @@
-require "crystal_correspondences/version"
-
-module CrystalCorrespondences
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative "../lib/crystal_correspondences/version"
+require_relative "../lib/crystal_correspondences/cli"
