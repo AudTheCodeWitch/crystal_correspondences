@@ -13,14 +13,15 @@ class CrystalCorrespondences::CLI
     puts "To see crystals by their purpose, type 'purpose'."
     puts "To see crystals by their color, type 'color.'"
     puts "To exit, type 'exit'."
-    input = gets.strip.downcase
-      while input != 'exit'
+    input = nil
+    while input != 'exit'
+      input = gets.strip
       case input
-      when list
+      when 'list'
         list
-      when purpose
+      when 'purpose'
         purposes
-      when color
+      when 'color'
         colors
       else
         puts "Try one of these options:"
@@ -33,9 +34,9 @@ class CrystalCorrespondences::CLI
     #get list of crystals
     puts 'To learn more about a crystal, type the number.'
     puts "To go back, type 'menu'."
-    input = gets.strip.downcase
+    input = gets.strip
     case input
-    when menu
+    when 'menu'
       menu
     when input.to_i > 0
       puts "crystal info"
@@ -49,9 +50,9 @@ class CrystalCorrespondences::CLI
     #get list of purposes
     puts 'Type the number of the purpose to see a list of associated crystals.'
     puts "To go back, type 'menu'."
-    input = gets.strip.downcase
+    input = gets.strip
     case input
-    when menu
+    when 'menu'
       menu
     when input.to_i > 0
       puts "list of crystals"
@@ -66,9 +67,9 @@ class CrystalCorrespondences::CLI
     #get list of colors
     puts 'Type the number of the color to see a list of the associated crystals.'
     puts "To go back, type 'menu'."
-    input = gets.strip.downcase
+    input = gets.strip
     case input
-    when menu
+    when 'menu'
       menu
     when input.to_i > 0
       puts "list of crystals"
