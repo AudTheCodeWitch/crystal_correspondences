@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 # don't put logic in this file... keep it simple
-require './lib/crystal_correspondences'
+require_relative  '../config/environment'
 
 CrystalCorrespondences::CLI.new.call

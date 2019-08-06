@@ -2,7 +2,7 @@
 class CrystalCorrespondences::CLI
   # show welcome message
   def call
-    puts "Welcome, friend!"
+    puts "Welcome, beautiful spirit!"
     menu
     goodbye
   end

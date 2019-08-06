@@ -8,6 +8,8 @@
     <orderEntry type="jdk" jdkName="Remote-rvm: ruby-2.6.1-p33" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v2.0.2, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.10.3, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pry (v0.12.2, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec (v3.8.0, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
   </component>
   <component name="RubyModuleProperties">
