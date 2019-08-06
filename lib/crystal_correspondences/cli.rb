@@ -56,7 +56,6 @@ class CrystalCorrespondences::CLI
     puts "To go back, type 'menu'."
     input = gets.strip.downcase
     if input == 'menu'
-      menu
     elsif input.to_i > 0
       puts "list of crystals"
     else
@@ -71,12 +70,11 @@ class CrystalCorrespondences::CLI
     puts "To go back, type 'menu'."
     input = gets.strip.downcase
     if input == 'menu'
-      menu
     elsif input.to_i > 0
       puts "list of crystals"
     else
       puts "Try one of these options:"
-      purposes
+      colors
     end
   end
 
