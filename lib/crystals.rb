@@ -2,8 +2,7 @@ require 'pry'
 class Crystals
 # Hold all the crystals and properties
 # Properties: name, color, purpose (set as an array), healing properties, gemstone properties
-attr_accessor :name, :color, :healing_properties, :gemstone_properties
-attr_reader :purpose
+attr_accessor :name, :crystal_url, :color, :purpose, :healing_properties, :gemstone_properties
   @@all = []
   def initialize(name, color, purpose, healing_properties, gemstone_properties)
     @name = name
