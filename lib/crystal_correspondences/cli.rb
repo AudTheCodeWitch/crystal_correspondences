@@ -4,18 +4,21 @@ class CrystalCorrespondences::CLI
   def call
     puts "Welcome, beautiful spirit!"
     menu
-    goodbye
   end
 
-  # show menu
-  def menu
+  def show_options
+
     puts "To see a list of crystals, type 'list'."
     puts "To see crystals by their purpose, type 'purpose'."
     puts "To see crystals by their color, type 'color.'"
     puts "To exit, type 'exit'."
+  end
+  # show menu
+  def menu
     input = nil
     while input != 'exit'
-      input = gets.strip
+      show_options
+      input = gets.strip.downcase
       case input
       when 'list'
         list
@@ -24,6 +27,7 @@ class CrystalCorrespondences::CLI
       when 'color'
         colors
       when 'exit'
+        goodbye
       else
         puts "Try one of these options:"
         menu
@@ -35,10 +39,9 @@ class CrystalCorrespondences::CLI
     #get list of crystals
     puts 'To learn more about a crystal, type the number.'
     puts "To go back, type 'menu'."
-    input = gets.strip
+    input = gets.strip.downcase
 
     if input == 'menu'
-      menu
     elsif input.to_i > 0
       puts "crystal info"
     else
@@ -51,7 +54,7 @@ class CrystalCorrespondences::CLI
     #get list of purposes
     puts 'Type the number of the purpose to see a list of associated crystals.'
     puts "To go back, type 'menu'."
-    input = gets.strip
+    input = gets.strip.downcase
     if input == 'menu'
       menu
     elsif input.to_i > 0
@@ -66,7 +69,7 @@ class CrystalCorrespondences::CLI
     #get list of colors
     puts 'Type the number of the color to see a list of the associated crystals.'
     puts "To go back, type 'menu'."
-    input = gets.strip
+    input = gets.strip.downcase
     if input == 'menu'
       menu
     elsif input.to_i > 0
