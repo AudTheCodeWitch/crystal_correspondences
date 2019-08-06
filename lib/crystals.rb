@@ -4,7 +4,7 @@ class Crystals
 attr_accessor :name, :color, :healing_properties, :gemstone_properties
 attr_reader :purpose
   @@all = []
-  def initialize(name, color = nil, purpose = nil, healing_properties = nil, gemstone_properties = nil)
+  def initialize( )
     @name = name
     @color = color
     @purpose << purpose # or maybe use purpose.split by comma
