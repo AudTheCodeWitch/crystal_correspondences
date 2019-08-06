@@ -41,7 +41,6 @@ class CrystalCorrespondences::CLI
       menu
     elsif input.to_i > 0
       puts "crystal info"
-    elsif input = 'exit'
     else
       puts "Try one of these options:"
       list
@@ -53,12 +52,10 @@ class CrystalCorrespondences::CLI
     puts 'Type the number of the purpose to see a list of associated crystals.'
     puts "To go back, type 'menu'."
     input = gets.strip
-    case input
-    when 'menu'
+    if input == 'menu'
       menu
-    when input.to_i > 0
+    elsif input.to_i > 0
       puts "list of crystals"
-      # maybe call list?
     else
       puts "Try one of these options:"
       purposes
