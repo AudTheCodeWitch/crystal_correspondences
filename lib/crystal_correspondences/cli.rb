@@ -23,6 +23,7 @@ class CrystalCorrespondences::CLI
         purposes
       when 'color'
         colors
+      when 'exit'
       else
         puts "Try one of these options:"
         menu
@@ -35,6 +36,7 @@ class CrystalCorrespondences::CLI
     puts 'To learn more about a crystal, type the number.'
     puts "To go back, type 'menu'."
     input = gets.strip
+
     case input
     when 'menu'
       menu
