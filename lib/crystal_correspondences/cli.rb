@@ -37,11 +37,11 @@ class CrystalCorrespondences::CLI
     puts "To go back, type 'menu'."
     input = gets.strip
 
-    case input
-    when 'menu'
+    if input == 'menu'
       menu
-    when input.to_i > 0
+    elsif input.to_i > 0
       puts "crystal info"
+    elsif input = 'exit'
     else
       puts "Try one of these options:"
       list
