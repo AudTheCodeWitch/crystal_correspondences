@@ -67,15 +67,13 @@ class CrystalCorrespondences::CLI
     puts 'Type the number of the color to see a list of the associated crystals.'
     puts "To go back, type 'menu'."
     input = gets.strip
-    case input
-    when 'menu'
+    if input == 'menu'
       menu
-    when input.to_i > 0
+    elsif input.to_i > 0
       puts "list of crystals"
-      # maybe call list?
     else
       puts "Try one of these options:"
-      colors
+      purposes
     end
   end
 
