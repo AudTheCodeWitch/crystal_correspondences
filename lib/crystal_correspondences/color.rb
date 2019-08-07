@@ -1,4 +1,4 @@
-class Colors
+class Color
   attr_accessor :name
   attr_reader :crystals
   @@all = []

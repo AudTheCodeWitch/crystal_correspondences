@@ -1,4 +1,4 @@
-class Purposes
+class Purpose
   attr_accessor :name
   attr_reader :crystals
   @@all = []
