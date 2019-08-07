@@ -5,7 +5,7 @@ class Crystals
   attr_accessor :name, :crystal_url
   attr_reader :colors, :purposes
   @@all = []
-  def initialize(name)
+  def initialize(name, crystal_url)
     @name = name
     @crystal_url = crystal_url
     @colors = []
