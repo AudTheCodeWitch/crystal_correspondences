@@ -37,15 +37,15 @@ class Crystal
     end
   end
 
-  # def add_color(color)
-  #   @colors << color
-  # end
-  #
-  # def add_purpose(purpose)
-  #   @purposes << purpose
-  # end
+  def add_color(color)
+    CrystalColors.new(self, color)
+  end
 
+  def colors
+    CrystalColors.all.select do |color|
+      color.crystal == self
+    end
+  end
 
-  binding.pry
 end
 
