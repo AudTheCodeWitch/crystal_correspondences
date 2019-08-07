@@ -11,11 +11,20 @@ class Crystal
     @crystal_url = crystal_url
     @colors = []
     @purposes = []
-    @@all << self
   end
 
   def self.all
     @@all
+  end
+
+  def save
+    self.class.all << self
+  end
+
+  def self.create(name, crystal_url)
+    crystal = new(name, crystal_url)
+    crystal.save
+    crystal
   end
 
   # def add_color(color)
