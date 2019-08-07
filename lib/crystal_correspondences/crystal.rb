@@ -9,8 +9,8 @@ class Crystal
   def initialize(name, crystal_url)
     @name = name
     @crystal_url = crystal_url
-    @colors = []
-    @purposes = []
+    # @colors = []
+    # @purposes = []
   end
 
   def self.all
@@ -25,6 +25,16 @@ class Crystal
     crystal = new(name, crystal_url)
     crystal.save
     crystal
+  end
+
+  def add_purpose(purpose)
+    CrystalPurposes.new(self, purpose)
+  end
+
+  def purposes
+    CrystalPurposes.all.select do |purpose|
+      purpose.crystal == self
+    end
   end
 
   # def add_color(color)
