@@ -1,5 +1,5 @@
 require 'pry'
-class Crystals
+class Crystal
   # Hold all the crystals and properties
   # Properties: name, color, purpose, url
   attr_accessor :name, :crystal_url
