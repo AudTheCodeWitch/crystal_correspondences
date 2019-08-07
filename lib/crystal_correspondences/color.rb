@@ -3,7 +3,7 @@ class Color
   attr_reader :crystals
   @@all = []
 
-  def initialize
+  def initialize(name)
     @name = name
     @crystals = []
     @@all << self
