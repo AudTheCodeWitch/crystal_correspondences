@@ -4,6 +4,7 @@ class Crystal
   # Properties: name, color, purpose, url
   attr_accessor :name, :crystal_url
   attr_reader :colors, :purposes
+
   @@all = []
   def initialize(name, crystal_url)
     @name = name
