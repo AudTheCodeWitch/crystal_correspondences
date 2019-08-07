@@ -13,17 +13,19 @@ class Crystals
     @@all << self
   end
 
-  def add_color(color)
-    @colors << color
-  end
-
-  def add_purpose(purpose)
-    @purposes << purpose
-  end
-
   def self.all
     @@all
   end
+
+  # def add_color(color)
+  #   @colors << color
+  # end
+  #
+  # def add_purpose(purpose)
+  #   @purposes << purpose
+  # end
+
+
   binding.pry
 end
 
