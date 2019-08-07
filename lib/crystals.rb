@@ -13,8 +13,6 @@ attr_accessor :name, :crystal_url, :color, :purpose, :healing_properties, :gemst
     @@all << self
   end
 
-
-
   def self.all
     @@all
   end
