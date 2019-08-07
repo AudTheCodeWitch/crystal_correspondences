@@ -2,7 +2,7 @@ require 'open-uri'
 require 'nokogiri'
 require 'pry'
 
-class CrystalListScraper
+class CrystalScraper
   doc = Nokogiri::HTML(open('https://beadage.net/gemstones/'))
   card = doc.css('.card.flex-card.horizontal.per-row-1-2')
   # card.each do |card|
