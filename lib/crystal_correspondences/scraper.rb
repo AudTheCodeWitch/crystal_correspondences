@@ -27,7 +27,7 @@ class Scraper
       if properties_text.include?('Color:')
         color_array = properties_text.split('Color:')[1].strip.split(', ')
       else
-        color_array = ['Too many color options!']
+        color_array = ['Basically a rainbow!']
       end
       color_array.map{|color| Color.find_or_create(color)}.each { |color| CrystalColors.create(crystal, color) }
       if properties_text.include?('Type of:')
