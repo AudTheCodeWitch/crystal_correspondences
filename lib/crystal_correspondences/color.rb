@@ -22,4 +22,14 @@ class Color
     color
   end
 
+  def add_crystal(crystal)
+    CrystalColors.new(crystal, self)
+  end
+
+  def crystals
+    CrystalColors.all.select do |crystal|
+      crystal.color == self
+    end.map{ |cc| cc.crystal}
+  end
+
 end

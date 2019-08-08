@@ -28,7 +28,7 @@ class Purpose
   def crystals
     CrystalPurposes.all.select do |crystal|
       crystal.purpose == self
-    end
+    end.map{ |cp| cp.crystal}
   end
 
 end
