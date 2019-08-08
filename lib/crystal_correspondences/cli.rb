@@ -1,5 +1,5 @@
 # This is my CLI controller
-class CrystalCorrespondences::CLI
+class CLI
   # show welcome message
   def call
     puts "Welcome, beautiful spirit!"

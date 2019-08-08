@@ -1,4 +1,9 @@
 require 'nokogiri'
 require 'open-uri'
 require 'pry'
-require './lib/crystal_correspondences'
+require 'require_all'
+require_all './lib/crystal_correspondences'
+
+
+
+binding.pry

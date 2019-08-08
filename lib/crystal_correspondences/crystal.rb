@@ -34,7 +34,7 @@ class Crystal
   def purposes
     CrystalPurposes.all.select do |purpose|
       purpose.crystal == self
-    end
+    end.map{ |cp| cp.purpose}
   end
 
   def add_color(color)
@@ -44,8 +44,7 @@ class Crystal
   def colors
     CrystalColors.all.select do |color|
       color.crystal == self
-    end
+    end.map{ |cc| cc.color}
   end
-
 end
 
