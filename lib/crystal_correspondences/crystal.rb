@@ -2,7 +2,7 @@ require 'pry'
 class Crystal
   # Hold all the crystals and properties
   # Properties: name, color, purpose, url
-  attr_accessor :name, :crystal_url, :color_array, :purpose_array
+  attr_accessor :name, :crystal_url
   attr_reader :colors, :purposes
 
   @@all = []
@@ -34,7 +34,7 @@ class Crystal
   def purposes
     CrystalPurposes.all.select do |purpose|
       purpose.crystal == self
-    end.map{ |cp| cp.purpose}
+    end.map{ |cp| cp.purpose.name}
   end
 
   def add_color(color)
@@ -44,7 +44,7 @@ class Crystal
   def colors
     CrystalColors.all.select do |color|
       color.crystal == self
-    end.map{ |cc| cc.color}
+    end.map{ |cc| cc.color.name}
   end
 end
 
