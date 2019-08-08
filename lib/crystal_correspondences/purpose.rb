@@ -25,14 +25,14 @@ class Purpose
     purpose
   end
 
-  def add_crystal(crystal)
-    CrystalPurposes.new(crystal, self)
-  end
-
-  def crystals
-    CrystalPurposes.all.select do |crystal|
-      crystal.purpose == self
-    end.map{ |cp| cp.crystal}
-  end
+  # def add_crystal(crystal)
+  #   CrystalPurposes.new(crystal, self)
+  # end
+  #
+  # def crystals
+  #   CrystalPurposes.all.select do |crystal|
+  #     crystal.purpose == self
+  #   end.map{ |cp| cp.crystal}
+  # end
 
 end
