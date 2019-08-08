@@ -8,7 +8,6 @@ class CrystalColors
   def initialize(crystal, color)
     @crystal = crystal
     @color = color
-    @@all << self
   end
 
   def save
