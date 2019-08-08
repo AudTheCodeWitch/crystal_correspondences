@@ -14,7 +14,11 @@ class Purpose
   def save
     self.class.all << self
   end
-
+  def self.find_or_create(name)
+    @@all.find do |p|
+      p.name == name
+    end || create(name)
+  end
   def self.create(name)
     purpose = new(name)
     purpose.save

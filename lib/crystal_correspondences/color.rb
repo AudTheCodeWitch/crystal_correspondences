@@ -1,11 +1,9 @@
 class Color
   attr_accessor :name
-  attr_reader :crystals
   @@all = []
 
   def initialize(name)
     @name = name
-    @crystals = []
   end
 
   def self.all
@@ -20,6 +18,12 @@ class Color
     color = new(name)
     color.save
     color
+  end
+
+  def self.find_or_create(name)
+    @@all.find do |c|
+        c.name == name
+      end || create(name)
   end
 
   def add_crystal(crystal)
