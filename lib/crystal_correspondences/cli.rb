@@ -54,9 +54,11 @@ class CLI
     elsif input.to_i > 0
       index = input.to_i - 1
       crystal = Crystal.all[index]
-      puts "About #{crystal.name}:"
-      puts "Colors: #{crystal.colors.downcase.join(', ').gsub(' Gemstones', '')}"
-      puts "Purposes: #{crystal.purposes.downcase.join(', ')}"
+      puts "* * * * *About #{crystal.name} * * * * *"
+      puts ' - - - - - - - - - - - -'
+      puts "Colors: #{crystal.colors.join(', ').gsub(' Gemstones', '').downcase}"
+      puts ''
+      puts "Metaphysical Uses: #{crystal.purposes.join(', ').downcase}"
     else
       puts 'Try one of these options:'
       list
@@ -65,11 +67,15 @@ class CLI
 
   def purposes
     #get list of purposes
+    Purpose.all.each_with_index do |purpose, i|
+      puts "#{i + 1}. #{purpose.name}"
+    end
     puts 'Type the number of the purpose to see a list of associated crystals.'
     puts "To go back, type 'menu'."
     input = gets.strip.downcase
     if input == 'menu'
     elsif input.to_i > 0
+      index = input.to_i - 1
       puts 'list of crystals'
     else
       puts 'Try one of these options:'
@@ -79,11 +85,15 @@ class CLI
 
   def colors
     #get list of colors
+    Color.all.each_with_index do |color, i|
+      puts "#{i + 1}. #{color.name}"
+    end
     puts 'Type the number of the color to see a list of the associated crystals.'
     puts "To go back, type 'menu'."
     input = gets.strip.downcase
     if input == 'menu'
     elsif input.to_i > 0
+      index = input.to_i - 1
       puts 'list of crystals'
     else
       puts 'Try one of these options:'
