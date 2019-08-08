@@ -2,11 +2,13 @@
 class CLI
   # show welcome message
   def call
-    puts "Gathering potion ingredients..."
-    # call index scraper
-    puts "Sprinkling pixie dust..."
-    # call crystal scraper
-    puts "Welcome, beautiful spirit!"
+    puts 'Gathering potion ingredients...'
+    start = Scraper.new
+    start.get_crystals
+    puts 'Sprinkling pixie dust...'
+    puts 'This may take a few minutes (magic takes time)...'
+    start.scrape_properties
+    puts 'Welcome, beautiful spirit!'
     menu
   end
 
@@ -33,23 +35,30 @@ class CLI
       when 'exit'
         goodbye
       else
-        puts "Try one of these options:"
+        puts 'Try one of these options:'
         menu
       end
     end
   end
 
   def list
-    #get list of crystals
+    # get list of crystals
+    Crystal.all.each_with_index do |crystal, i|
+      puts "#{i + 1}. #{crystal.name}"
+    end
     puts 'To learn more about a crystal, type the number.'
     puts "To go back, type 'menu'."
     input = gets.strip.downcase
 
     if input == 'menu'
     elsif input.to_i > 0
-      puts "crystal info"
+      index = input.to_i - 1
+      crystal = Crystal.all[index]
+      puts "About #{crystal.name}:"
+      puts "Colors: #{crystal.colors.downcase.join(', ').gsub(' Gemstones', '')}"
+      puts "Purposes: #{crystal.purposes.downcase.join(', ')}"
     else
-      puts "Try one of these options:"
+      puts 'Try one of these options:'
       list
     end
   end
@@ -61,9 +70,9 @@ class CLI
     input = gets.strip.downcase
     if input == 'menu'
     elsif input.to_i > 0
-      puts "list of crystals"
+      puts 'list of crystals'
     else
-      puts "Try one of these options:"
+      puts 'Try one of these options:'
       purposes
     end
   end
@@ -75,15 +84,15 @@ class CLI
     input = gets.strip.downcase
     if input == 'menu'
     elsif input.to_i > 0
-      puts "list of crystals"
+      puts 'list of crystals'
     else
-      puts "Try one of these options:"
+      puts 'Try one of these options:'
       colors
     end
   end
 
   def goodbye
-    puts "Love and light to you, my dear. Goodbye!"
+    puts 'Love and light to you, my dear. Goodbye!'
   end
 
   # maybe add navigation method for instructions to get rid of repetition
