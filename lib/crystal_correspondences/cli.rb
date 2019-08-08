@@ -2,6 +2,10 @@
 class CLI
   # show welcome message
   def call
+    puts "Gathering potion ingredients..."
+    # call index scraper
+    puts "Sprinkling pixie dust..."
+    # call crystal scraper
     puts "Welcome, beautiful spirit!"
     menu
   end
