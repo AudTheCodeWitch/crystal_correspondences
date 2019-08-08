@@ -11,8 +11,18 @@ class CrystalColors
     @@all << self
   end
 
+  def save
+    self.class.all << self
+  end
+
   def self.all
     @@all
+  end
+
+  def self.create(crystal, color)
+    color = new(crystal, color)
+    color.save
+    color
   end
 
 end
