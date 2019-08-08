@@ -7,11 +7,20 @@ class CrystalPurposes
   def initialize(crystal, purpose)
     @crystal = crystal
     @purpose = purpose
-    @@all << self
+  end
+
+  def save
+    self.class.all << self
   end
 
   def self.all
     @@all
+  end
+
+  def self.create(crystal, purpose)
+    purpose = new(crystal, purpose)
+    purpose.save
+    purpose
   end
 
 end
