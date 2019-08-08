@@ -23,16 +23,22 @@ class Scraper
     Crystal.all.each do |crystal|
       crystal_doc = Nokogiri::HTML(open(crystal.crystal_url))
       properties_text = crystal_doc.css('.entry-content').css('div')[-2].text
+
       if properties_text.include?('Color:')
-        crystal.color_array = properties_text.split('Color:')[1].strip.split(', ')
+        color_array = properties_text.split('Color:')[1].strip.split(', ')
       else
-        crystal.color_array = ['Too many color options!']
+        color_array = ['Too many color options!']
       end
+
+      color_array.each { |color| CrystalColors.create(crystal, color) }
+
       if properties_text.include?('Type of:')
-        crystal.purpose_array = properties_text.split('Color:')[0].split('Uses:')[1].strip.split('Type of:')[0].split(', ')
+        purpose_array = properties_text.split('Color:')[0].split('Uses:')[1].strip.split('Type of:')[0].split(', ')
       else
-        crystal.purpose_array = properties_text.split('Color:')[0].split('Uses:')[1].strip.split(', ')
+        purpose_array = properties_text.split('Color:')[0].split('Uses:')[1].strip.split(', ')
       end
+
+      purpose_array.each { |purpose| CrystalPurposes.create(crystal, purpose) }
     end
   end
 
