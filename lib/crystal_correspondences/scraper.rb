@@ -3,15 +3,31 @@ require 'nokogiri'
 require 'pry'
 
 class Scraper
+  def open_index
+    Nokogiri::HTML(open('https://beadage.net/gemstones/'))
+  end
 
-    doc = Nokogiri::HTML(open('https://beadage.net/gemstones/'))
-    crystals = doc.css('.crystal.flex-crystal.horizontal.per-row-1-2')
-    crystals.each do |crystal|
-      name = crystals.css('h3').text
-      crystal_url = crystals.css('h3').css('a').attribute('href').value
-      Crystal.new(name, crystal_url)
-      binding.pry
+  def get_list
+    open_index.css('.card.flex-card.horizontal.per-row-1-2')
+  end
+
+  def get_crystals
+    get_list.each do |card|
+      name = card.css('h3').text
+      crystal_url = card.css('h3').css('a').attribute('href').value
+      Crystal.create(name, crystal_url)
     end
+  end
+
+
+    # doc = Nokogiri::HTML(open('https://beadage.net/gemstones/'))
+    # crystals = doc.css('.crystal.flex-crystal.horizontal.per-row-1-2')
+    # crystals.each do |crystal|
+    #   name = crystals.css('h3').text
+    #   crystal_url = crystals.css('h3').css('a').attribute('href').value
+    #   Crystal.new(name, crystal_url)
+    #   binding.pry
+    # end
 
 
   #   name = crystal.css('h3').text
