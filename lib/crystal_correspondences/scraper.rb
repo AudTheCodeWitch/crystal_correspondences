@@ -29,16 +29,14 @@ class Scraper
       else
         color_array = ['Too many color options!']
       end
-
-      color_array.each { |color| CrystalColors.create(crystal, color) }
-
+      color_array.map{|color| Color.find_or_create(color)}.each { |color| CrystalColors.create(crystal, color) }
       if properties_text.include?('Type of:')
         purpose_array = properties_text.split('Color:')[0].split('Uses:')[1].strip.split('Type of:')[0].split(', ')
       else
         purpose_array = properties_text.split('Color:')[0].split('Uses:')[1].strip.split(', ')
       end
 
-      purpose_array.each { |purpose| CrystalPurposes.create(crystal, purpose) }
+      purpose_array.map{|purpose| Purpose.find_or_create(purpose)}.each { |purpose| CrystalPurposes.create(crystal, purpose) }
     end
   end
 
