@@ -2,7 +2,7 @@ require 'pry'
 class Crystal
   # Hold all the crystals and properties
   # Properties: name, color, purpose, url
-  attr_accessor :name, :crystal_url
+  attr_accessor :name, :crystal_url, :color_array, :purpose_array
   attr_reader :colors, :purposes
 
   @@all = []
