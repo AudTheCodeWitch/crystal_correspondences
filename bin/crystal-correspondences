@@ -2,4 +2,4 @@
 # don't put logic in this file... keep it simple
 require_relative  '../config/environment'
 
-CrystalCorrespondences::CLI.new.call
+CLI.new.call
