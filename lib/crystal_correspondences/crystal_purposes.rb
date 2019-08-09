@@ -1,5 +1,5 @@
 class CrystalPurposes
-  # Use this to assign purposes to crystals and crystals to purposes - joining model
+# Use this to assign purposes to crystals and crystals to purposes - joining
 
   attr_accessor :crystal, :purpose
   @@all = []
@@ -22,5 +22,4 @@ class CrystalPurposes
     purpose.save
     purpose
   end
-
 end
