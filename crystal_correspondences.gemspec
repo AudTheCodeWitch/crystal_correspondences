@@ -8,12 +8,12 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Audrea Cook"]
   spec.email         = ["audreacwork@gmail.com"]
 
-  spec.summary       = %q{A reference guide for crystals and their metaphysical properties.}
-  spec.description   = %q{Write a longer description or delete this line.}
+  spec.summary       = %q{A CLI to display crystals and their metaphysical uses.}
+  spec.description   = %q{Use this CLI to learn about crystals and their corresponding metaphysical uses. Special thanks to beadage.net for such useful information!}
   spec.homepage      = "https://github.com/AudTheCodeWitch/crystal_correspondences"
   spec.license       = "MIT"
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+  # spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/AudTheCodeWitch/crystal_correspondences"
