@@ -81,7 +81,10 @@ class CLI
     if input == 'menu'
     elsif input.to_i > 0
       index = input.to_i - 1
-      puts 'list of crystals'
+      p = Purpose.all[index]
+      Purpose.crystals(p).each_with_index do |crystal, i|
+        puts "#{i + 1}. #{crystal.name}"
+      end
     else
       puts 'Try one of these options:'
       purposes

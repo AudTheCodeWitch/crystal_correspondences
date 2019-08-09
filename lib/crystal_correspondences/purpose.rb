@@ -29,10 +29,11 @@ class Purpose
   #   CrystalPurposes.new(crystal, self)
   # end
   #
-  # def crystals
-  #   CrystalPurposes.all.select do |crystal|
-  #     crystal.purpose == self
-  #   end.map{ |cp| cp.crystal}
-  # end
+
+  def self.crystals(p)
+    CrystalPurposes.all.select do |crystal|
+      crystal.purpose == p
+    end.map{ |cp| cp.crystal}
+  end
 
 end
