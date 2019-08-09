@@ -1,16 +1,14 @@
 require 'pry'
 class Crystal
-  # Hold all the crystals and properties
-  # Properties: name, color, purpose, url
+  # Holds all the crystals and properties
   attr_accessor :name, :crystal_url
   attr_reader :colors, :purposes
 
   @@all = []
+
   def initialize(name, crystal_url)
     @name = name
     @crystal_url = crystal_url
-    # @colors = []
-    # @purposes = []
   end
 
   def self.all
