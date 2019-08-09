@@ -1,4 +1,3 @@
-# This is my CLI controller
 class CLI
   # show welcome message
   def call
@@ -41,6 +40,7 @@ class CLI
     end
   end
 
+  # Use this method to display info from a variety of sources
   def crystal_info(crystal)
     puts "* * * * *About #{crystal.name} * * * * *"
     puts '- - - - - - - - - - - - - - - - - - - - - - - -'
@@ -50,8 +50,8 @@ class CLI
     puts ' - - - - - - - - - - - - -  - - - - - - - - - -'
   end
 
+  # Show list of all crystals
   def list
-    # get list of crystals
     Crystal.all.each_with_index do |crystal, i|
       puts "#{i + 1}. #{crystal.name}"
     end
@@ -71,8 +71,8 @@ class CLI
     end
   end
 
+  # Show list of all purposes
   def purposes
-    # get list of purposes
     Purpose.all.each_with_index do |purpose, i|
       puts "#{i + 1}. #{purpose.name}"
     end
@@ -85,6 +85,7 @@ class CLI
     elsif input.to_i > 0 && (input.to_i - 1) < Purpose.all.length
       index = input.to_i - 1
       p = Purpose.all[index]
+      # Show list of crystals for a given purpose
       Purpose.crystals(p).each_with_index do |crystal, i|
         puts "#{i + 1}. #{crystal.name}"
       end
@@ -94,6 +95,7 @@ class CLI
       if input.to_i > 0 && (input.to_i - 1) < Purpose.crystals(p).length
         index = input.to_i - 1
         crystal = Purpose.crystals(p)[index]
+        # Show info for given crystal
         crystal_info(crystal)
       end
     else
@@ -102,9 +104,9 @@ class CLI
     end
   end
 
+  # Show list of all colors
   def colors
-    # get list of colors
-    Color.all.each_with_index do |color, i|
+    Color.all.sort.each_with_index do |color, i|
       puts "#{i + 1}. #{color.name}"
     end
 
@@ -115,6 +117,7 @@ class CLI
     if input == 'menu'
     elsif input.to_i > 0 && (input.to_i - 1) < Color.all.length
       index = input.to_i - 1
+      # Show list of crystals for a given color
       c = Color.all[index]
       Color.crystals(c).each_with_index do |crystal, i|
         puts "#{i + 1}. #{crystal.name}"
@@ -125,6 +128,7 @@ class CLI
       if input.to_i > 0 && (input.to_i - 1) < Color.crystals(c).length
         index = input.to_i - 1
         crystal = Color.crystals(c)[index]
+        # Show info for given crystal
         crystal_info(crystal)
       end
     else
