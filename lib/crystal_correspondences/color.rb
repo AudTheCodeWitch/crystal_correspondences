@@ -30,10 +30,10 @@ class Color
   #   CrystalColors.new(crystal, self)
   # end
   #
-  # def crystals
-  #   CrystalColors.all.select do |crystal|
-  #     crystal.color == self
-  #   end.map{ |cc| cc.crystal}
-  # end
+  def self.crystals(c)
+    CrystalColors.all.select do |crystal|
+      crystal.color == c
+    end.map{ |cc| cc.crystal}
+  end
 
 end

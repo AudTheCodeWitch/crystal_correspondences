@@ -41,6 +41,16 @@ class CLI
     end
   end
 
+  def crystal_info(crystal)
+    puts "* * * * *About #{crystal.name} * * * * *"
+    puts ' - - - - - - - - - - - - - - - - -  - - - - - - - - - -'
+    puts "Colors: #{crystal.colors.join(', ').gsub(' Gemstones', '').downcase}"
+    puts ''
+    puts "Metaphysical Uses: #{crystal.purposes.join(', ').downcase}"
+    puts ''
+    puts ' - - - - - - - - - - - - - - - - -  - - - - - - - - - -'
+  end
+
   def list
     # get list of crystals
     Crystal.all.each_with_index do |crystal, i|
@@ -55,13 +65,7 @@ class CLI
     elsif input.to_i > 0
       index = input.to_i - 1
       crystal = Crystal.all[index]
-      puts "* * * * *About #{crystal.name} * * * * *"
-      puts ' - - - - - - - - - - - - - - - - -  - - - - - - - - - -'
-      puts "Colors: #{crystal.colors.join(', ').gsub(' Gemstones', '').downcase}"
-      puts ''
-      puts "Metaphysical Uses: #{crystal.purposes.join(', ').downcase}"
-      puts ''
-      puts ' - - - - - - - - - - - - - - - - -  - - - - - - - - - -'
+      crystal_info(crystal)
     else
       puts 'Try one of these options:'
       list
@@ -104,7 +108,10 @@ class CLI
     if input == 'menu'
     elsif input.to_i > 0
       index = input.to_i - 1
-      puts 'list of crystals'
+      c = Color.all[index]
+      Color.crystals(c).each_with_index do |crystal, i|
+        puts "#{i + 1}. #{crystal.name}"
+      end
     else
       puts 'Try one of these options:'
       colors
