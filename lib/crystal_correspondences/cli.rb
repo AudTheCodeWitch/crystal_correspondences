@@ -46,6 +46,7 @@ class CLI
     Crystal.all.each_with_index do |crystal, i|
       puts "#{i + 1}. #{crystal.name}"
     end
+    puts ''
     puts 'To learn more about a crystal, type the number.'
     puts "To go back, type 'menu'."
     input = gets.strip.downcase
@@ -55,10 +56,12 @@ class CLI
       index = input.to_i - 1
       crystal = Crystal.all[index]
       puts "* * * * *About #{crystal.name} * * * * *"
-      puts ' - - - - - - - - - - - -'
+      puts ' - - - - - - - - - - - - - - - - -  - - - - - - - - - -'
       puts "Colors: #{crystal.colors.join(', ').gsub(' Gemstones', '').downcase}"
       puts ''
       puts "Metaphysical Uses: #{crystal.purposes.join(', ').downcase}"
+      puts ''
+      puts ' - - - - - - - - - - - - - - - - -  - - - - - - - - - -'
     else
       puts 'Try one of these options:'
       list
@@ -70,8 +73,10 @@ class CLI
     Purpose.all.each_with_index do |purpose, i|
       puts "#{i + 1}. #{purpose.name}"
     end
+    puts ''
     puts 'Type the number of the purpose to see a list of associated crystals.'
     puts "To go back, type 'menu'."
+    puts ''
     input = gets.strip.downcase
     if input == 'menu'
     elsif input.to_i > 0
@@ -88,8 +93,10 @@ class CLI
     Color.all.each_with_index do |color, i|
       puts "#{i + 1}. #{color.name}"
     end
+    puts ''
     puts 'Type the number of the color to see a list of the associated crystals.'
     puts "To go back, type 'menu'."
+    puts ''
     input = gets.strip.downcase
     if input == 'menu'
     elsif input.to_i > 0
