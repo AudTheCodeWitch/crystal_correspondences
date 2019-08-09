@@ -20,6 +20,7 @@ class CLI
   # show menu
   def menu
     input = nil unless input != nil
+    goodbye if input == 'exit'
     while input != 'exit'
       show_options
       input = gets.strip.downcase
