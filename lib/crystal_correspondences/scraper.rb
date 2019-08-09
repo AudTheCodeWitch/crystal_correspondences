@@ -7,12 +7,12 @@ class Scraper
     Nokogiri::HTML(open('https://beadage.net/gemstones/'))
   end
 
-  def get_list
+  def scrape_list
     open_index.css('.card.flex-card.horizontal.per-row-1-2')
   end
 
-  def get_crystals
-    get_list.each do |card|
+  def scrape_crystals
+    scrape_list.each do |card|
       name = card.css('h3').text
       crystal_url = card.css('h3').css('a').attribute('href').value
       Crystal.create(name, crystal_url)
