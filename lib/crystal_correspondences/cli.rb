@@ -106,7 +106,7 @@ class CLI
 
   # Show list of all colors
   def colors
-    Color.all.sort.each_with_index do |color, i|
+    Color.all.each_with_index do |color, i|
       puts "#{i + 1}. #{color.name}"
     end
 
