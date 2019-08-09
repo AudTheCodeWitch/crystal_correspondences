@@ -5,7 +5,6 @@ class CLI
     puts 'Gathering potion ingredients...'
     start = Scraper.new
     start.get_crystals
-    puts 'Sprinkling pixie dust...'
     puts 'This may take a few minutes (magic takes time)...'
     start.scrape_properties
     puts 'Welcome, beautiful spirit!'
@@ -13,18 +12,19 @@ class CLI
   end
 
   def show_options
-
     puts "To see a list of crystals, type 'list'."
     puts "To see crystals by their purpose, type 'purpose'."
     puts "To see crystals by their color, type 'color.'"
     puts "To exit, type 'exit'."
   end
+
   # show menu
   def menu
     input = nil
     while input != 'exit'
       show_options
       input = gets.strip.downcase
+
       case input
       when 'list'
         list
@@ -43,12 +43,11 @@ class CLI
 
   def crystal_info(crystal)
     puts "* * * * *About #{crystal.name} * * * * *"
-    puts ' - - - - - - - - - - - - - - - - -  - - - - - - - - - -'
-    puts "Colors: #{crystal.colors.join(', ').gsub(' Gemstones', '').downcase}"
-    puts ''
-    puts "Metaphysical Uses: #{crystal.purposes.join(', ').downcase}"
-    puts ''
-    puts ' - - - - - - - - - - - - - - - - -  - - - - - - - - - -'
+    puts '- - - - - - - - - - - - - - - - - - - - - - - -'
+    puts "Color(s): #{crystal.colors.join(', ').gsub(' Gemstones', '').downcase}"
+    puts "\nMetaphysical Use(s): #{crystal.purposes.join(', ').downcase}"
+    puts "\nTo learn more about #{crystal.name.downcase}, visit #{crystal.crystal_url}.\n\n"
+    puts ' - - - - - - - - - - - - -  - - - - - - - - - -'
   end
 
   def list
@@ -56,13 +55,13 @@ class CLI
     Crystal.all.each_with_index do |crystal, i|
       puts "#{i + 1}. #{crystal.name}"
     end
-    puts ''
-    puts 'To learn more about a crystal, type the number.'
+
+    puts "\nTo learn more about a crystal, type the number."
     puts "To go back, type 'menu'."
     input = gets.strip.downcase
 
     if input == 'menu'
-    elsif input.to_i > 0
+    elsif input.to_i > 0 && (input.to_i - 1) < Crystal.all.length
       index = input.to_i - 1
       crystal = Crystal.all[index]
       crystal_info(crystal)
@@ -73,21 +72,29 @@ class CLI
   end
 
   def purposes
-    #get list of purposes
+    # get list of purposes
     Purpose.all.each_with_index do |purpose, i|
       puts "#{i + 1}. #{purpose.name}"
     end
-    puts ''
-    puts 'Type the number of the purpose to see a list of associated crystals.'
-    puts "To go back, type 'menu'."
-    puts ''
+
+    puts "\nType the number of the purpose to see a list of associated crystals."
+    puts "To go back, type 'menu'.\n\n"
+
     input = gets.strip.downcase
     if input == 'menu'
-    elsif input.to_i > 0
+    elsif input.to_i > 0 && (input.to_i - 1) < Purpose.all.length
       index = input.to_i - 1
       p = Purpose.all[index]
       Purpose.crystals(p).each_with_index do |crystal, i|
         puts "#{i + 1}. #{crystal.name}"
+      end
+
+      puts "\nTo learn more about a crystal, type the number."
+      input = gets.strip.downcase
+      if input.to_i > 0 && (input.to_i - 1) < Purpose.crystals(p).length
+        index = input.to_i - 1
+        crystal = Purpose.crystals(p)[index]
+        crystal_info(crystal)
       end
     else
       puts 'Try one of these options:'
@@ -96,21 +103,29 @@ class CLI
   end
 
   def colors
-    #get list of colors
+    # get list of colors
     Color.all.each_with_index do |color, i|
       puts "#{i + 1}. #{color.name}"
     end
-    puts ''
-    puts 'Type the number of the color to see a list of the associated crystals.'
-    puts "To go back, type 'menu'."
-    puts ''
+
+    puts "\nType the number of the color to see a list of the associated crystals."
+    puts "To go back, type 'menu'.\n\n"
+
     input = gets.strip.downcase
     if input == 'menu'
-    elsif input.to_i > 0
+    elsif input.to_i > 0 && (input.to_i - 1) < Color.all.length
       index = input.to_i - 1
       c = Color.all[index]
       Color.crystals(c).each_with_index do |crystal, i|
         puts "#{i + 1}. #{crystal.name}"
+      end
+
+      puts "\nTo learn more about a crystal, type the number."
+      input = gets.strip.downcase
+      if input.to_i > 0 && (input.to_i - 1) < Color.crystals(c).length
+        index = input.to_i - 1
+        crystal = Color.crystals(c)[index]
+        crystal_info(crystal)
       end
     else
       puts 'Try one of these options:'
@@ -119,9 +134,7 @@ class CLI
   end
 
   def goodbye
+    puts 'Special thanks to https://beadage.net!'
     puts 'Love and light to you, my dear. Goodbye!'
   end
-
-  # maybe add navigation method for instructions to get rid of repetition
-
 end
