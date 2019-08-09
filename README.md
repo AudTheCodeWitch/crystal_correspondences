@@ -22,7 +22,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Enter the following in your terminal and follow the on-screen prompts:
+
+    $ bin/crystal-correspondences
 
 ## Development
 
@@ -40,4 +42,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the CrystalCorrespondences project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/crystal_correspondences/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the CrystalCorrespondences project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/AudTheCodeWitch/crystal_correspondences/blob/master/CODE_OF_CONDUCT.md).
