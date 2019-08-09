@@ -3,7 +3,7 @@ class CLI
   def call
     puts 'Gathering potion ingredients...'
     start = Scraper.new
-    start.get_crystals
+    start.scrape_crystals
     puts 'This may take a few minutes (magic takes time)...'
     start.scrape_properties
     puts 'Welcome, beautiful spirit!'
