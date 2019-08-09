@@ -22,18 +22,14 @@ class Color
 
   def self.find_or_create(name)
     @@all.find do |c|
-        c.name == name
-      end || create(name)
+      c.name == name
+    end || create(name)
   end
 
-  # def add_crystal(crystal)
-  #   CrystalColors.new(crystal, self)
-  # end
-  #
   def self.crystals(c)
     CrystalColors.all.select do |crystal|
       crystal.color == c
-    end.map{ |cc| cc.crystal}
+    end.map{ |cc| cc.crystal }
   end
 
 end
