@@ -1,5 +1,5 @@
 class CLI
-  # show welcome message
+# show welcome message
   def call
     puts 'Gathering potion ingredients...'
     start = Scraper.new

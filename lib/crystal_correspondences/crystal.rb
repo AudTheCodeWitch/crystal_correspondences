@@ -19,6 +19,15 @@ class Crystal
     self.class.all << self
   end
 
+  # {name => ruby,
+  # crystal_url => link}
+
+  def self.create_from_hash(hash)
+    name = hash['name']
+    crystal_url = hash['crystal_url']
+    create(name, crystal_url)
+  end
+
   def self.create(name, crystal_url)
     crystal = new(name, crystal_url)
     crystal.save
