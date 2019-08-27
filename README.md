@@ -1,4 +1,4 @@
-# CrystalCorrespondences
+# Crystal Correspondences
 
 Welcome to Crystal Correspondences! Use this CLI to learn the metaphysical properties of crystals. Follow the prompts and search by crystal, color, or purpose. 
 
